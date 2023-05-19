@@ -15,7 +15,7 @@ void addNote() {
 	Node* nodeBaru = new Node();
 	cout << "Masukkan NIM: ";
 	cin >> nim;
-	cout << "Masukkan nama: ";
+	cout << "Masukkan Nama: ";
 	cin >> nama;
 	nodeBaru->noMhs = nim;
 	nodeBaru->name = nama;
@@ -32,8 +32,8 @@ void addNote() {
 		return;
 	}
 
-	Node* current = START;
 	Node* previous = START;
+	Node* current = START;
 
 	while ((current != NULL) && (nim >= current->noMhs))
 	{
@@ -58,7 +58,9 @@ bool searchNode(int nim, Node* current, Node* previous) {
 		previous = current;
 		current = current->next;
 	}
-	if (current == NULL) {
+
+	if (current == NULL) 
+	{
 		return false;
 	}
 	else if (current->noMhs == nim) 
@@ -70,9 +72,10 @@ bool searchNode(int nim, Node* current, Node* previous) {
 		return false;
 	}
 }
-
 bool deleteNode(int nim) {
 	Node* current = START;
 	Node* previous = START;
 	if (searchNode(nim, previous, current) == false)
-};
+		return false;
+	previous->next = current->next;
+}
