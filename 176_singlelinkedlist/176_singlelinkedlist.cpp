@@ -7,3 +7,11 @@ struct Node
 	string name;
 	Node* next;
 };
+
+Node* START = NULL;
+
+void addNote() {
+	int nim;
+	string nama;
+	Node* nodeBaru = new Node();
+}
